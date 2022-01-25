@@ -36,3 +36,30 @@ class TestManageModulesRoutes(TestCase):
             'manage_module.manage_modules_index',
             'You should be redirected automatically to target URL: <a href="/manage/modules?cid=1">/manage/modules?cid=1</a>'
         )
+
+    def test_site_map(self):
+        self.fail()
+
+    def test_manage_modules(self):
+        self.fail()
+
+    def test_manage_modules_list(self):
+        self.fail()
+
+    def test_add_module(self):
+        self.fail()
+
+    def test_update_module_param(self):
+        self.fail()
+
+    def test_view_module(self):
+        self.fail()
+
+    def test_enable_module(self):
+        self.fail()
+
+    def test_disable_module(self):
+        self.fail()
+
+    def test_view_delete_module(self):
+        self.fail()

@@ -27,15 +27,27 @@ from tests.test_helper import TestHelper
 app.testing = True
 
 
-class TestManageAdvancedRoutes(TestCase):
+class TestManageIocTypesRoutes(TestCase):
     def setUp(self) -> None:
         self._test_helper = TestHelper()
 
-    def test_case_get_manage_adv_index_should_redirect_to_cid_1_if_no_cid_is_provided(self):
-        self._test_helper.verify_path_without_cid_redirects_correctly(
-            'manage_adv.manage_adv_index',
-            'You should be redirected automatically to target URL: <a href="/manage/advanced?cid=1">/manage/advanced?cid=1</a>'
-        )
+    def test_list_ioc_types(self):
+        self.fail()
 
-    def test_manage_adv_back_db(self):
+    def test_get_ioc_type(self):
+        self.fail()
+
+    def test_view_ioc_modal(self):
+        self.fail()
+
+    def test_add_ioc_modal(self):
+        self.fail()
+
+    def test_add_ioc_type_api(self):
+        self.fail()
+
+    def test_remove_ioc_type(self):
+        self.fail()
+
+    def test_update_ioc(self):
         self.fail()

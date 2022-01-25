@@ -27,15 +27,45 @@ from tests.test_helper import TestHelper
 app.testing = True
 
 
-class TestManageAdvancedRoutes(TestCase):
+class TestManageUsers(TestCase):
     def setUp(self) -> None:
         self._test_helper = TestHelper()
 
-    def test_case_get_manage_adv_index_should_redirect_to_cid_1_if_no_cid_is_provided(self):
-        self._test_helper.verify_path_without_cid_redirects_correctly(
-            'manage_adv.manage_adv_index',
-            'You should be redirected automatically to target URL: <a href="/manage/advanced?cid=1">/manage/advanced?cid=1</a>'
-        )
+    def test_manage_users_index(self):
+        self.fail()
 
-    def test_manage_adv_back_db(self):
+    def test_manage_users_list(self):
+        self.fail()
+
+    def test_add_user(self):
+        self.fail()
+
+    def test_add_user_modal(self):
+        self.fail()
+
+    def test_view_user(self):
+        self.fail()
+
+    def test_view_user_modal(self):
+        self.fail()
+
+    def test_update_user_api(self):
+        self.fail()
+
+    def test_deactivate_user_api(self):
+        self.fail()
+
+    def test_activate_user_api(self):
+        self.fail()
+
+    def test_view_delete_user(self):
+        self.fail()
+
+    def test_exists_user_restricted(self):
+        self.fail()
+
+    def test_lookup_name_restricted(self):
+        self.fail()
+
+    def test_manage_users_list_restricted(self):
         self.fail()

@@ -27,15 +27,39 @@ from tests.test_helper import TestHelper
 app.testing = True
 
 
-class TestManageAdvancedRoutes(TestCase):
+class TestDashboardRoutes(TestCase):
     def setUp(self) -> None:
         self._test_helper = TestHelper()
 
-    def test_case_get_manage_adv_index_should_redirect_to_cid_1_if_no_cid_is_provided(self):
-        self._test_helper.verify_path_without_cid_redirects_correctly(
-            'manage_adv.manage_adv_index',
-            'You should be redirected automatically to target URL: <a href="/manage/advanced?cid=1">/manage/advanced?cid=1</a>'
-        )
+    def test_logout(self):
+        self.fail()
 
-    def test_manage_adv_back_db(self):
+    def test_get_cases_charts(self):
+        self.fail()
+
+    def test_root(self):
+        self.fail()
+
+    def test_index(self):
+        self.fail()
+
+    def test_get_gtasks(self):
+        self.fail()
+
+    def test_view_gtask(self):
+        self.fail()
+
+    def test_get_utasks(self):
+        self.fail()
+
+    def test_utask_statusupdate(self):
+        self.fail()
+
+    def test_add_gtask(self):
+        self.fail()
+
+    def test_edit_gtask(self):
+        self.fail()
+
+    def test_gtask_delete(self):
         self.fail()
