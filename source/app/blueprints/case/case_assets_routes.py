@@ -187,7 +187,7 @@ def add_asset(caseid):
 
 @case_assets_blueprint.route('/case/assets/upload', methods=['POST'])
 @api_login_required
-def case_upload_ioc(caseid):
+def case_upload_asset(caseid):
 
     try:
         # validate before saving
