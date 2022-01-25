@@ -27,36 +27,26 @@ from tests.test_helper import TestHelper
 app.testing = True
 
 
-class TestCaseRfilesRoutes(TestCase):
+class TestActivitiesRoutes(TestCase):
     def setUp(self) -> None:
         self._test_helper = TestHelper()
 
-    def test_case_get_case_rfiles(self):
-        self.fail()
-
-    def test_case_get_case_rfiles_should_redirect_to_cid_1_if_no_cid_is_provided(self):
-        self._test_helper.verify_path_without_cid_redirects_correctly(
-            'case_rfiles.case_rfile',
-            'You should be redirected automatically to target URL: <a href="/case/evidences?cid=1">/case/evidences?cid=1</a>'
+    def test_activities_index(self):
+        self._test_helper.verify_path_with_cid(
+            'activities.activities_index',
+            '1'
         )
 
-    def test_case_list_rfiles(self):
-        self.fail()
+    def test_activities_index_should_redirect_to_cid_1_if_no_cid_is_provided(self):
+        self._test_helper.verify_path_without_cid_redirects_correctly(
+            'activities.activities_index',
+            'You should be redirected automatically to target URL: <a href="/activities?cid=1">/activities?cid=1</a>'
+        )
 
-    def test_case_rfiles_state(self):
-        self.fail()
+    def test_list_activities(self):
+        self._test_helper.verify_path_with_cid(
+            'activities.list_activities',
+            '1'
+        )
 
-    def test_case_add_rfile(self):
-        self.fail()
 
-    def test_case_get_evidence(self):
-        self.fail()
-
-    def test_case_edit_rfile_modal(self):
-        self.fail()
-
-    def test_case_edit_rfile(self):
-        self.fail()
-
-    def test_case_delete_rfile(self):
-        self.fail()

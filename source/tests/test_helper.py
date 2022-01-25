@@ -35,7 +35,7 @@ class TestHelper(TestCase):
 
         csrf_token = re.search(r'id="csrf_token" name="csrf_token" type="hidden" value="(.*?)"', str(login_page.data)).group(1)
 
-        test_app.post('/login', data=dict(username='administrator', password='administrator', csrf_token=csrf_token), follow_redirects=True)
+        test_app.post('/login', data=dict(username='tester', password='<test_password>', csrf_token=csrf_token), follow_redirects=True)
 
     def verify_path_without_cid_redirects_correctly(self, path: str, assert_string: str):
         with app.test_client() as test_app:
@@ -49,3 +49,21 @@ class TestHelper(TestCase):
             result2 = test_app.get(url_for(path), follow_redirects=True)
 
             self.assertEqual(200, result2.status_code)
+
+    def verify_path_with_cid(self, path: str, cid_value: str):
+        with app.test_client() as test_app:
+            self.log_in(test_app)
+
+            payload = {'cid': cid_value}
+            result = test_app.get(url_for(path, **payload))
+            print(result.data)
+
+            self.assertEqual(200, result.status_code)
+
+    def verify_path(self, path: str):
+        with app.test_client() as test_app:
+            self.log_in(test_app)
+
+            result = test_app.get(url_for(path))
+
+            self.assertEqual(200, result.status_code)

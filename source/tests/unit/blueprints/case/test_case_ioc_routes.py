@@ -27,36 +27,36 @@ from tests.test_helper import TestHelper
 app.testing = True
 
 
-class TestCaseRfilesRoutes(TestCase):
+class TestCaseIocRoutes(TestCase):
     def setUp(self) -> None:
         self._test_helper = TestHelper()
 
-    def test_case_get_case_rfiles(self):
+    def test_case_ioc(self):
         self.fail()
 
-    def test_case_get_case_rfiles_should_redirect_to_cid_1_if_no_cid_is_provided(self):
-        self._test_helper.verify_path_without_cid_redirects_correctly(
-            'case_rfiles.case_rfile',
-            'You should be redirected automatically to target URL: <a href="/case/evidences?cid=1">/case/evidences?cid=1</a>'
-        )
-
-    def test_case_list_rfiles(self):
+    def test_case_list_ioc(self):
         self.fail()
 
-    def test_case_rfiles_state(self):
+    def test_case_ioc_state(self):
         self.fail()
 
-    def test_case_add_rfile(self):
+    def test_case_add_ioc(self):
         self.fail()
 
-    def test_case_get_evidence(self):
+    def test_case_upload_ioc(self):
         self.fail()
 
-    def test_case_edit_rfile_modal(self):
+    def test_case_add_ioc_modal(self):
         self.fail()
 
-    def test_case_edit_rfile(self):
+    def test_case_delete_ioc(self):
         self.fail()
 
-    def test_case_delete_rfile(self):
+    def test_case_view_ioc_modal(self):
+        self.fail()
+
+    def test_case_view_ioc(self):
+        self.fail()
+
+    def test_case_update_ioc(self):
         self.fail()

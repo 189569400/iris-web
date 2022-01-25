@@ -27,36 +27,45 @@ from tests.test_helper import TestHelper
 app.testing = True
 
 
-class TestCaseRfilesRoutes(TestCase):
+class TestCaseNotesRoutes(TestCase):
     def setUp(self) -> None:
         self._test_helper = TestHelper()
 
-    def test_case_get_case_rfiles(self):
+    def test_case_notes(self):
         self.fail()
 
-    def test_case_get_case_rfiles_should_redirect_to_cid_1_if_no_cid_is_provided(self):
-        self._test_helper.verify_path_without_cid_redirects_correctly(
-            'case_rfiles.case_rfile',
-            'You should be redirected automatically to target URL: <a href="/case/evidences?cid=1">/case/evidences?cid=1</a>'
-        )
-
-    def test_case_list_rfiles(self):
+    def test_case_note_detail(self):
         self.fail()
 
-    def test_case_rfiles_state(self):
+    def test_case_note_detail_modal(self):
         self.fail()
 
-    def test_case_add_rfile(self):
+    def test_case_note_delete(self):
         self.fail()
 
-    def test_case_get_evidence(self):
+    def test_case_note_save(self):
         self.fail()
 
-    def test_case_edit_rfile_modal(self):
+    def test_case_note_add(self):
         self.fail()
 
-    def test_case_edit_rfile(self):
+    def test_case_load_notes_groups(self):
         self.fail()
 
-    def test_case_delete_rfile(self):
+    def test_case_notes_state(self):
+        self.fail()
+
+    def test_case_search_notes(self):
+        self.fail()
+
+    def test_case_add_notes_groups(self):
+        self.fail()
+
+    def test_case_delete_notes_groups(self):
+        self.fail()
+
+    def test_case_get_notes_group(self):
+        self.fail()
+
+    def test_case_edit_notes_groups(self):
         self.fail()

@@ -27,36 +27,39 @@ from tests.test_helper import TestHelper
 app.testing = True
 
 
-class TestCaseRfilesRoutes(TestCase):
+class TestCaseAssetsRoutes(TestCase):
     def setUp(self) -> None:
         self._test_helper = TestHelper()
 
-    def test_case_get_case_rfiles(self):
+    def test_case_assets(self):
         self.fail()
 
-    def test_case_get_case_rfiles_should_redirect_to_cid_1_if_no_cid_is_provided(self):
-        self._test_helper.verify_path_without_cid_redirects_correctly(
-            'case_rfiles.case_rfile',
-            'You should be redirected automatically to target URL: <a href="/case/evidences?cid=1">/case/evidences?cid=1</a>'
-        )
-
-    def test_case_list_rfiles(self):
+    def test_case_list_assets(self):
         self.fail()
 
-    def test_case_rfiles_state(self):
+    def test_case_assets_state(self):
         self.fail()
 
-    def test_case_add_rfile(self):
+    def test_autoload_asset(self):
         self.fail()
 
-    def test_case_get_evidence(self):
+    def test_add_asset_modal(self):
         self.fail()
 
-    def test_case_edit_rfile_modal(self):
+    def test_add_asset(self):
         self.fail()
 
-    def test_case_edit_rfile(self):
+    def test_case_upload_asset(self):
         self.fail()
 
-    def test_case_delete_rfile(self):
+    def test_asset_view(self):
+        self.fail()
+
+    def test_asset_view_modal(self):
+        self.fail()
+
+    def test_asset_update(self):
+        self.fail()
+
+    def test_asset_delete(self):
         self.fail()

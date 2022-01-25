@@ -31,8 +31,38 @@ class TestCaseTasksRoutes(TestCase):
     def setUp(self) -> None:
         self._test_helper = TestHelper()
 
+    def test_case_get_tasks(self):
+        self.fail()
+
     def test_case_get_tasks_should_redirect_to_cid_1_if_no_cid_is_provided(self):
         self._test_helper.verify_path_without_cid_redirects_correctly(
             'case_tasks.case_tasks',
             'You should be redirected automatically to target URL: <a href="/case/tasks?cid=1">/case/tasks?cid=1</a>'
         )
+
+    def test_case_tasks(self):
+        self.fail()
+
+    def test_case_get_tasks_state(self):
+        self.fail()
+
+    def test_case_task_statusupdate(self):
+        self.fail()
+
+    def test_case_add_task_modal(self):
+        self.fail()
+
+    def test_case_add_task(self):
+        self.fail()
+
+    def test_case_task_view(self):
+        self.fail()
+
+    def test_case_task_view_modal(self):
+        self.fail()
+
+    def test_case_edit_task(self):
+        self.fail()
+
+    def test_case_edit_delete(self):
+        self.fail()
