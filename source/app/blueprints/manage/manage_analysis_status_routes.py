@@ -21,7 +21,7 @@
 from flask import Blueprint
 from app.util import response_success, response_error
 
-from app.models.models import AnalysisStatus
+from app.common.models import AnalysisStatus
 from app.util import api_login_required
 
 manage_anastatus_blueprint = Blueprint('manage_anastatus',

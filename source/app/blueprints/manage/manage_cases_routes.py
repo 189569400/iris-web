@@ -18,7 +18,6 @@
 #  along with this program; if not, write to the Free Software Foundation,
 #  Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-import logging
 # IMPORTS ------------------------------------------------
 import os
 import urllib.parse
@@ -28,11 +27,10 @@ import marshmallow
 from flask import Blueprint
 from flask import render_template, request, url_for, redirect
 
-from app.datamgmt.case.case_db import get_case
-from app.datamgmt.client.client_db import get_client
-from app.datamgmt.iris_engine.modules_db import iris_module_exists, \
+from app.persistence.managers.case.case_db import get_case
+from app.persistence.managers.iris_engine.modules_db import iris_module_exists, \
     get_pipelines_args_from_name
-from app.datamgmt.manage.manage_cases_db import list_cases_dict, close_case, reopen_case, delete_case, \
+from app.persistence.managers.manage.manage_cases_db import list_cases_dict, close_case, reopen_case, delete_case, \
     get_case_details_rt
 from app.forms import AddCaseForm
 from app.iris_engine.module_handler.module_handler import list_available_pipelines, instantiate_module_from_name, \
@@ -42,8 +40,8 @@ from app.iris_engine.tasker.tasks import task_case_update
 from app.iris_engine.utils.common import build_upload_path
 from app.iris_engine.utils.tracker import track_activity
 
-from app.models.models import Client
-from app.schema.marshables import CaseSchema
+from app.common.models import Client
+from app.common.schema.marshables import CaseSchema
 
 from app.util import response_success, response_error, login_required, api_login_required
 

@@ -28,15 +28,15 @@ from flask_login import logout_user, current_user
 from sqlalchemy import distinct
 
 from app import db
-#from app.datamgmt.case.case_tasks_db import get_tasks_status
-from app.datamgmt.dashboard.dashboard_db import list_global_tasks, update_gtask_status, list_user_tasks, \
-    update_utask_status, get_tasks_status, get_global_task
+#from app.managers.case.case_tasks_db import get_tasks_status
+from app.persistence.managers.dashboard.dashboard_db import list_global_tasks, list_user_tasks, \
+    get_tasks_status, get_global_task
 from app.forms import CustomerForm, CaseGlobalTaskForm
 from app.iris_engine.utils.tracker import track_activity
-from app.models.cases import Cases
-from app.models.models import Client, UserActivity, TaskStatus
-from app.models.models import FileContentHash, GlobalTasks, User, Ioc, CaseTasks
-from app.schema.marshables import GlobalTasksSchema, CaseTaskSchema
+from app.common.models import Cases
+from app.common.models import UserActivity, TaskStatus
+from app.common.models import GlobalTasks, User, CaseTasks
+from app.common.schema.marshables import GlobalTasksSchema, CaseTaskSchema
 from app.util import response_success, response_error, login_required, api_login_required
 
 # CONTENT ------------------------------------------------

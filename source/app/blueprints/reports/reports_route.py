@@ -31,9 +31,9 @@ from flask import url_for, redirect, send_file
 from flask_login import current_user
 
 from app.iris_engine.reporter.reporter import IrisMakeDocReport
-from app.iris_engine.tasker.tasks import task_make_report, task_pull_misp_all, task_update_ioc_misp, task_update_ioc
+from app.iris_engine.tasker.tasks import task_make_report
 from app.iris_engine.utils.tracker import track_activity
-from app.models import CaseTemplateReport
+from app.common.models import CaseTemplateReport
 from app.util import response_success, PgEncoder, FileRemover, response_error, api_login_required
 
 reports_blueprint = Blueprint('reports',

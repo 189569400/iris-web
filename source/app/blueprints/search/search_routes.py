@@ -21,19 +21,17 @@
 # IMPORTS ------------------------------------------------
 from flask import Blueprint
 from flask import render_template, request, url_for, redirect
-from sqlalchemy import and_, or_
-import json
+from sqlalchemy import and_
 
-from app import db
 from app.forms import SearchForm
 
-from app.models.models import HashLink, FileName, PathName, CasesDatum, FileContentHash, Ioc, IocLink, Client, Tlp, \
+from app.common.models import Ioc, IocLink, Client, Tlp, \
     Notes, IocType
-from app.models.cases import Cases
+from app.common.models import Cases
 
 from app.iris_engine.utils.tracker import track_activity
 
-from app.util import response_success, response_error, AlchemyFnCode, get_urlcase, login_required, api_login_required
+from app.util import response_success, login_required, api_login_required
 
 search_blueprint = Blueprint('search',
                              __name__,

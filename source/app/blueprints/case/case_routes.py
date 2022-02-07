@@ -23,7 +23,7 @@ import marshmallow
 from flask import Blueprint
 from flask import render_template, url_for, redirect, request
 from flask_login import current_user
-from flask_socketio import emit, join_room, leave_room, rooms
+from flask_socketio import emit, join_room
 from flask_wtf import FlaskForm
 from sqlalchemy import desc
 
@@ -35,12 +35,12 @@ from app.blueprints.case.case_timeline_routes import case_timeline_blueprint
 from app.blueprints.case.case_rfiles_routes import case_rfiles_blueprint
 from app.blueprints.case.case_graphs_routes import case_graph_blueprint
 from app.blueprints.case.case_tasks_routes import case_tasks_blueprint
-from app.datamgmt.reporter.report_db import export_case_json
+from app.persistence.managers.reporter.report_db import export_case_json
 from app.iris_engine.utils.tracker import track_activity
-from app.models import UserActivity, User
-from app.schema.marshables import CaseSchema, TaskLogSchema
+from app.common.models import UserActivity, User
+from app.common.schema.marshables import TaskLogSchema
 from app.util import response_success, response_error, login_required, api_login_required
-from app.datamgmt.case.case_db import case_get_desc_crc, get_case, get_case_report_template, \
+from app.persistence.managers.case.case_db import case_get_desc_crc, get_case, get_case_report_template, \
     get_activities_report_template
 
 app.register_blueprint(case_timeline_blueprint)

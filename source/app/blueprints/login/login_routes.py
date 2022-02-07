@@ -27,8 +27,8 @@ from flask_login import login_user, current_user
 from app import bc, db
 from app.forms import LoginForm
 from app.iris_engine.utils.tracker import track_activity
-from app.models.cases import Cases
-from app.models.models import User
+from app.common.models import Cases
+from app.common.models import User
 
 login_blueprint = Blueprint(
     'login',

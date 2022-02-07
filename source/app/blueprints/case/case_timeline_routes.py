@@ -29,13 +29,13 @@ from flask_wtf import FlaskForm
 from sqlalchemy import and_
 
 from app import db
-from app.datamgmt.states import get_timeline_state, update_timeline_state
+from app.persistence.managers.states import get_timeline_state, update_timeline_state
 from app.forms import CaseEventForm
-from app.models.cases import Cases, CasesEvent
-from app.models.models import CaseAssets, AssetsType, User, CaseEventsAssets, IocLink, Ioc, EventCategory
-from app.schema.marshables import EventSchema
+from app.common.models import Cases, CasesEvent
+from app.common.models import CaseAssets, AssetsType, User, CaseEventsAssets, IocLink, Ioc, EventCategory
+from app.common.schema.marshables import EventSchema
 from app.util import response_success, response_error, login_required, api_login_required
-from app.datamgmt.case.case_events_db import get_case_assets, get_events_categories, save_event_category, \
+from app.persistence.managers.case.case_events_db import get_case_assets, get_events_categories, save_event_category, \
     get_default_cat, delete_event_category, get_case_event, update_event_assets
 
 from app.iris_engine.utils.tracker import track_activity

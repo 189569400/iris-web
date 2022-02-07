@@ -42,8 +42,8 @@ from functools import wraps
 from app import app, db, TEMPLATE_PATH
 
 # build a Json response
-from app.datamgmt.case.case_db import get_case
-from app.models import Cases
+from app.persistence.managers.case.case_db import get_case
+from app.common.models import Cases
 
 
 def response(msg, data):

@@ -21,8 +21,8 @@
 # IMPORTS ------------------------------------------------
 from app import app
 from app import db
-from app.models.cases import Cases
-from app.models.models import Client
+from app.common.models import Cases
+from app.common.models import Client
 from app.util import response_success, get_urlcasename
 
 from flask_login import current_user

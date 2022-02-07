@@ -28,16 +28,16 @@ import os
 from datetime import datetime
 
 from flask_login import current_user
-from sqlalchemy import create_engine, text, and_, or_, desc
+from sqlalchemy import and_, or_, desc
 
 from app import app
-from app.datamgmt.activities.activities_db import get_auto_activities, get_manual_activities
-from app.datamgmt.reporter.report_db import export_case_json
+from app.persistence.managers.activities.activities_manager import get_auto_activities, get_manual_activities
+from app.persistence.managers.reporter.report_db import export_case_json
 from app.iris_engine.connectors.misp4iris import Misp4Iris
-from app.models import CasesDatum, HashLink, FileContentHash, FileName, PathName, CasesEvent, IocLink, Ioc, \
+from app.common.models import CasesDatum, HashLink, FileContentHash, FileName, PathName, CasesEvent, IocLink, Ioc, \
     IocAssetLink, CaseAssets, AssetsType, CaseEventsAssets, CaseReceivedFile, CaseTemplateReport
 from app.util import task_success, task_failure
-from app.datamgmt.case.case_db import case_get_desc_crc
+from app.persistence.managers.case.case_db import case_get_desc_crc
 
 from docx_generator.docx_generator import DocxGenerator
 from docx_generator.exceptions import rendering_error

@@ -25,11 +25,11 @@ from flask import render_template, url_for, redirect
 from flask_login import current_user
 from flask_wtf import FlaskForm
 
-from app.datamgmt.case.case_db import get_case
-from app.datamgmt.case.case_rfiles_db import get_rfiles, add_rfile, get_rfile, update_rfile, delete_rfile
-from app.datamgmt.states import get_evidences_state
+from app.persistence.managers.case.case_db import get_case
+from app.persistence.managers.case.case_rfiles_db import get_rfiles, add_rfile, get_rfile, update_rfile, delete_rfile
+from app.persistence.managers.states import get_evidences_state
 from app.iris_engine.utils.tracker import track_activity
-from app.schema.marshables import CaseEvidenceSchema
+from app.common.schema.marshables import CaseEvidenceSchema
 from app.util import response_success, response_error, login_required, api_login_required
 
 case_rfiles_blueprint = Blueprint(

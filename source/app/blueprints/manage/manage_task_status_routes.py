@@ -20,7 +20,7 @@
 
 from flask import Blueprint
 
-from app.models.models import TaskStatus
+from app.common.models import TaskStatus
 from app.util import api_login_required
 from app.util import response_success, response_error
 

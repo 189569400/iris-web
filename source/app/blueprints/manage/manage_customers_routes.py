@@ -24,14 +24,14 @@ from flask import Blueprint
 from flask import render_template, request, url_for, redirect
 from marshmallow import ValidationError
 
-from app.datamgmt.client.client_db import get_client_list, get_client, update_client, create_client, delete_client, \
+from app.persistence.managers.client.client_db import get_client_list, get_client, update_client, create_client, delete_client, \
     get_client_api
-from app.datamgmt.exceptions.ElementExceptions import ElementNotFoundException, ElementInUseException
+from app.persistence.exceptions.sql.ElementExceptions import ElementNotFoundException, ElementInUseException
 from app.forms import AddCustomerForm
 from app.iris_engine.utils.tracker import track_activity
 from app.util import response_success, response_error, login_required, admin_required, api_admin_required, \
     api_login_required
-from app.schema.marshables import CustomerSchema
+from app.common.schema.marshables import CustomerSchema
 
 manage_customers_blueprint = Blueprint(
     'manage_customers',

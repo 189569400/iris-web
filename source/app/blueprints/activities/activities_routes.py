@@ -28,7 +28,7 @@ from flask_wtf import FlaskForm
 
 
 import app
-from app.datamgmt.activities.activities_db import get_all_user_activities
+from app.persistence.managers.activities.activities_manager import get_all_user_activities
 from app.util import response_success, login_required, api_login_required
 
 activities_blueprint = Blueprint(

@@ -19,7 +19,7 @@
 #  Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 import importlib
 
-from app.datamgmt.iris_engine.modules_db import iris_module_exists, iris_module_add, modules_list_pipelines, \
+from app.persistence.managers.iris_engine.modules_db import iris_module_exists, iris_module_add, modules_list_pipelines, \
      get_module_config_from_hname
 from iris_interface import IrisInterfaceStatus as IStatus
 import logging

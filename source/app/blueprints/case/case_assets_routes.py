@@ -27,17 +27,17 @@ from flask import render_template, url_for, redirect, request
 from flask_login import current_user
 
 from app import db
-from app.datamgmt.case.case_assets_db import get_assets_types, delete_asset, get_assets, get_asset, \
-    get_similar_assets, get_linked_iocs_from_asset, set_ioc_links, get_linked_iocs_id_from_asset, \
+from app.persistence.managers.case.case_assets_db import get_assets_types, delete_asset, get_assets, get_asset, \
+    get_similar_assets, set_ioc_links, get_linked_iocs_id_from_asset, \
     create_asset, get_analysis_status_list, get_linked_iocs_finfo_from_asset, get_asset_type_id
-from app.datamgmt.case.case_db import get_case, get_case_client_id
-from app.datamgmt.case.case_iocs_db import get_iocs
-from app.datamgmt.states import get_assets_state, update_assets_state
+from app.persistence.managers.case.case_db import get_case, get_case_client_id
+from app.persistence.managers.case.case_iocs_db import get_iocs
+from app.persistence.managers.states import get_assets_state, update_assets_state
 from app.forms import ModalAddCaseAssetForm, AssetBasicForm
 
 from app.iris_engine.utils.tracker import track_activity
-from app.models import AnalysisStatus, IocAssetLink, Ioc, IocLink
-from app.schema.marshables import CaseAssetsSchema
+from app.common.models import AnalysisStatus, IocAssetLink, Ioc, IocLink
+from app.common.schema.marshables import CaseAssetsSchema
 from app.util import response_success, response_error, login_required, api_login_required
 
 case_assets_blueprint = Blueprint('case_assets',

@@ -26,7 +26,7 @@ from app.util import admin_required
 
 from app import bc
 from app.forms import RegisterForm
-from app.models.models import User
+from app.common.models import User
 
 register_blueprint = Blueprint('register',
                                __name__,

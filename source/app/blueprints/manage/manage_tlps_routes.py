@@ -19,7 +19,7 @@
 #  Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 from flask import Blueprint
 
-from app.models import Tlp
+from app.common.models import Tlp
 from app.util import api_login_required
 from app.util import response_success, response_error
 

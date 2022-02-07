@@ -28,12 +28,12 @@ from flask_login import current_user
 from flask_wtf import FlaskForm
 
 from app import db
-from app.datamgmt.case.case_db import get_case
-from app.datamgmt.case.case_tasks_db import get_tasks, get_task, update_task_status, add_task, get_tasks_status
-from app.datamgmt.states import get_tasks_state, update_tasks_state
+from app.persistence.managers.case.case_db import get_case
+from app.persistence.managers.case.case_tasks_db import get_tasks, get_task, update_task_status, add_task, get_tasks_status
+from app.persistence.managers.states import get_tasks_state, update_tasks_state
 from app.forms import CaseTaskForm
-from app.models.models import User, CaseTasks
-from app.schema.marshables import CaseTaskSchema
+from app.common.models import User, CaseTasks
+from app.common.schema.marshables import CaseTaskSchema
 from app.util import response_success, response_error, login_required, api_login_required
 from app.iris_engine.utils.tracker import track_activity
 

@@ -25,7 +25,7 @@ from flask import request
 
 from flask_login import current_user
 
-from app.models import UserActivity
+from app.common.models import UserActivity
 
 from app import db
 

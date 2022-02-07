@@ -28,9 +28,9 @@ from flask_login import current_user
 from flask_wtf import FlaskForm
 
 from app import db
-from app.datamgmt.manage.manage_users_db import get_user, update_user
+from app.persistence.managers.manage.manage_users_db import get_user, update_user
 from app.iris_engine.utils.tracker import track_activity
-from app.schema.marshables import UserSchema
+from app.common.schema.marshables import UserSchema
 from app.util import login_required, api_login_required, response_success, response_error
 
 profile_blueprint = Blueprint('profile',

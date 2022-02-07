@@ -24,16 +24,16 @@ import secrets
 import string
 import os
 from alembic.config import Config
-from alembic import command, context
+from alembic import command
 
-from sqlalchemy import create_engine, and_
+from sqlalchemy import create_engine
 from sqlalchemy_utils import database_exists, create_database
 
 from app import db, bc, app, celery
 from app.configuration import SQLALCHEMY_BASE_URI
 from app.iris_engine.module_handler.module_handler import instantiate_module_from_name
-from app.models.cases import Cases, Client
-from app.models.models import Role, Languages, User, get_or_create, create_safe, UserRoles, OsType, Tlp, AssetsType, \
+from app.common.models import Cases, Client
+from app.common.models import Role, Languages, User, get_or_create, create_safe, UserRoles, OsType, Tlp, AssetsType, \
     IrisModule, EventCategory, AnalysisStatus, ReportType, IocType, TaskStatus
 
 

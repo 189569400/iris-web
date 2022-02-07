@@ -24,10 +24,10 @@ from flask import Blueprint
 from flask import render_template, request, url_for, redirect
 
 from app.iris_engine.utils.tracker import track_activity
-from app.models.models import AssetsType, CaseAssets
+from app.common.models import AssetsType, CaseAssets
 from app.forms import AddAssetForm
 from app import db
-from app.schema.marshables import AssetSchema
+from app.common.schema.marshables import AssetSchema
 
 from app.util import response_success, response_error, login_required, admin_required, api_admin_required, \
     api_login_required

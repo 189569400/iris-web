@@ -23,7 +23,6 @@
 # Flask modules
 
 # App modules
-import base64
 
 from app import app, lm
 
@@ -55,7 +54,7 @@ from app.blueprints.manage.manage_objects_routes import manage_objects_blueprint
 from app.blueprints.manage.manage_tlps_routes import manage_tlp_type_blueprint
 from app.blueprints.manage.manage_task_status_routes import manage_task_status_blueprint
 
-from app.models.models import User
+from app.common.models import User
 
 from app.post_init import run_post_init
 

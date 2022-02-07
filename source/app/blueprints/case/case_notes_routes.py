@@ -27,14 +27,13 @@ from flask import render_template, url_for, redirect, request
 from flask_login import current_user
 from flask_wtf import FlaskForm
 
-from app.datamgmt.case.case_db import get_case, case_get_desc_crc
-from app.datamgmt.case.case_notes_db import get_note, delete_note, add_note, update_note, get_groups_detail, \
-    get_groups_short, find_pattern_in_notes, add_note_group, delete_note_group, update_note_group, get_notes_from_group, \
+from app.persistence.managers.case.case_db import get_case, case_get_desc_crc
+from app.persistence.managers.case.case_notes_db import get_note, delete_note, add_note, update_note, get_groups_short, find_pattern_in_notes, add_note_group, delete_note_group, update_note_group, get_notes_from_group, \
     get_group_details
-from app.datamgmt.states import get_notes_state
+from app.persistence.managers.states import get_notes_state
 from app.forms import CaseNoteForm
 from app.iris_engine.utils.tracker import track_activity
-from app.schema.marshables import CaseNoteSchema, CaseAddNoteSchema, CaseGroupNoteSchema
+from app.common.schema.marshables import CaseNoteSchema, CaseAddNoteSchema, CaseGroupNoteSchema
 from app.util import response_success, response_error, login_required, api_login_required
 
 case_notes_blueprint = Blueprint('case_notes',

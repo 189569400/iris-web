@@ -25,11 +25,11 @@ from datetime import datetime, timedelta
 from unittest import TestCase
 
 from app import db
-from app.datamgmt.case.case_assets_db import create_asset
-from app.datamgmt.case.case_notes_db import add_note, add_note_group
-from app.datamgmt.manage.manage_users_db import create_user
-from app.models.cases import Cases, Client, CasesEvent
-from app.models.models import User, CaseEventsAssets
+from app.persistence.managers.case.case_assets_db import create_asset
+from app.persistence.managers.case.case_notes_db import add_note, add_note_group
+from app.persistence.managers.manage.manage_users_db import create_user
+from app.common.models import Cases, Client, CasesEvent
+from app.common.models import User, CaseEventsAssets
 from app.post_init import run_post_init
 from tests.clean_database import clean_db
 

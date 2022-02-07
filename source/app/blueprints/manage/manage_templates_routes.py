@@ -31,7 +31,7 @@ from flask_wtf import FlaskForm
 
 from app import db, app
 from app.forms import AddReportTemplateForm
-from app.models.models import CaseTemplateReport, User, Languages, ReportType
+from app.common.models import CaseTemplateReport, User, Languages, ReportType
 from app.util import response_success, response_error, admin_required, api_admin_required
 
 manage_templates_blueprint = Blueprint(

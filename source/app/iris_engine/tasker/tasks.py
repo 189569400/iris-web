@@ -31,8 +31,8 @@ from sqlalchemy import case
 from app import celery
 from app import db, app
 from app.blueprints.context.context import update_user_case_ctx
-from app.datamgmt.case.case_db import get_case
-from app.datamgmt.iris_engine.modules_db import get_pipelines_args_from_name, get_module_config_from_name
+from app.persistence.managers.case.case_db import get_case
+from app.persistence.managers.iris_engine.modules_db import get_pipelines_args_from_name, get_module_config_from_name
 from app.iris_engine.connectors.misp4iris import Misp4Iris
 from app.iris_engine.module_handler.module_handler import instantiate_module_from_name, configure_module_on_init
 from app.iris_engine.utils.common import build_upload_path
@@ -41,8 +41,8 @@ from app.iris_engine.utils.tracker import track_activity
 
 from iris_interface.IrisModuleInterface import IrisInterfaceTypes
 
-from app.models import CasesDatum, FileContentHash, HashLink, Ioc, CaseEventsAssets, CaseAssets
-from app.models.cases import Cases, CasesEvent
+from app.common.models import CasesDatum, FileContentHash, HashLink, Ioc, CaseEventsAssets, CaseAssets
+from app.common.models import Cases, CasesEvent
 from app.util import task_failure, task_success
 from iris_interface import IrisInterfaceStatus as IStatus
 

@@ -30,7 +30,7 @@ from flask import render_template
 from sqlalchemy import desc
 
 import app
-from app.models.models import CeleryTaskMeta
+from app.common.models import CeleryTaskMeta
 from app.util import response_success, response_error, login_required, api_login_required
 
 log = logging.getLogger('iris')
