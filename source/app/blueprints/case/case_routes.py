@@ -25,7 +25,6 @@ from flask import render_template, url_for, redirect, request
 from flask_login import current_user
 from flask_socketio import emit, join_room
 from flask_wtf import FlaskForm
-from sqlalchemy import desc
 
 from app import app, socket_io, db
 from app.blueprints.case.case_assets_routes import case_assets_blueprint
@@ -37,7 +36,6 @@ from app.blueprints.case.case_graphs_routes import case_graph_blueprint
 from app.blueprints.case.case_tasks_routes import case_tasks_blueprint
 from app.persistence.managers.reporter.report_db import export_case_json
 from app.iris_engine.utils.tracker import track_activity
-from app.common.models import UserActivity, User
 from app.common.schema.marshables import TaskLogSchema
 from app.util import response_success, response_error, login_required, api_login_required
 from app.persistence.managers.case.case_db import case_get_desc_crc, get_case, get_case_report_template, \
@@ -156,18 +154,7 @@ def summary_fetch(caseid):
 @case_blueprint.route('/case/activities/list', methods=['GET'])
 @api_login_required
 def activity_fetch(caseid):
-    ua = UserActivity.query.with_entities(
-        UserActivity.activity_date,
-        User.name,
-        UserActivity.activity_desc,
-        UserActivity.is_from_api
-    ).filter(
-        UserActivity.case_id == caseid
-    ).join(
-        UserActivity.user
-    ).order_by(
-        desc(UserActivity.activity_date)
-    ).limit(40).all()
+    ua = app.activities_manager.list_user_activities(caseid, limit=40)
 
     output = [a._asdict() for a in ua]
 

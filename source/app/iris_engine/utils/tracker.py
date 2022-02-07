@@ -25,9 +25,7 @@ from flask import request
 
 from flask_login import current_user
 
-from app.common.models import UserActivity
-
-from app import db
+from app import app
 
 import logging as log
 
@@ -39,30 +37,15 @@ def track_activity(message, caseid=None, ctx_less=False, user_input=False):
     :param message: Message to save as activity
     :return: Nothing
     """
-    ua = UserActivity()
 
-    try:
-        ua.user_id = current_user.id
-    except:
-        pass
+    if caseid is None:
+        caseid = current_user.ctx_case
 
-    try:
-        if caseid is None:
-            caseid = current_user.ctx_case
-        ua.case_id = caseid
-    except Exception as e:
-        pass
+    activity_desc = message.capitalize() if not ctx_less else "[Unbound] {}".format(message.capitalize())
+    is_from_api = (request.cookies.get('session') is None if request else False)
+    ua = app.activities_manager.create_user_activity(current_user.id, caseid, datetime.utcnow(), activity_desc,
+                                                     user_input=user_input, is_from_api=is_from_api)
 
-    ua.activity_date = datetime.utcnow()
-    ua.activity_desc = message.capitalize() if not ctx_less else "[Unbound] {}".format(message.capitalize())
-
-    log.info(ua.activity_desc)
-
-    ua.user_input = user_input
-
-    ua.is_from_api = (request.cookies.get('session') is None if request else False)
-
-    db.session.add(ua)
-    db.session.commit()
+    log.info(activity_desc)
 
     return ua

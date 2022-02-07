@@ -25,16 +25,16 @@ import marshmallow
 from flask import Blueprint
 from flask import render_template, request, url_for, redirect
 from flask_login import logout_user, current_user
-from sqlalchemy import distinct
 
-from app import db
+import app
+from app import db, app as fapp
 #from app.managers.case.case_tasks_db import get_tasks_status
 from app.persistence.managers.dashboard.dashboard_db import list_global_tasks, list_user_tasks, \
     get_tasks_status, get_global_task
 from app.forms import CustomerForm, CaseGlobalTaskForm
 from app.iris_engine.utils.tracker import track_activity
 from app.common.models import Cases
-from app.common.models import UserActivity, TaskStatus
+from app.common.models import TaskStatus
 from app.common.models import GlobalTasks, User, CaseTasks
 from app.common.schema.marshables import GlobalTasksSchema, CaseTaskSchema
 from app.util import response_success, response_error, login_required, api_login_required
@@ -113,13 +113,7 @@ def index(caseid, url_redir):
 
     # Retrieve the dashboard data from multiple sources.
     # Quite fast as it is only counts.
-    user_open_case = UserActivity.query.with_entities(
-        distinct(Cases.case_id)
-    ).filter(
-        UserActivity.user_id == current_user.id,
-        UserActivity.case_id == Cases.case_id,
-        Cases.close_date == None
-    ).count()
+    user_open_case = fapp.activities_manager.count_user_open_case(current_user.id)
 
     data = {
         "user_open_count": user_open_case,

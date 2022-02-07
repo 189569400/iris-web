@@ -65,7 +65,7 @@ bc = Bcrypt(app)  # flask-bcrypt
 lm = LoginManager()  # flask-loginmanager
 lm.init_app(app)  # init the login manager
 
-ma = Marshmallow(app) # Init marshmallow
+ma = Marshmallow(app)  # Init marshmallow
 
 dropzone = Dropzone(app)
 
@@ -88,6 +88,9 @@ socket_io = SocketIO(app, cors_allowed_origins="*")
 def shutdown_session(exception=None):
     db.session.remove()
 
+
+from app.persistence.managers.activities.activities_manager import ActivitiesManager
+
+app.activities_manager = ActivitiesManager()
+
 from app import views
-
-

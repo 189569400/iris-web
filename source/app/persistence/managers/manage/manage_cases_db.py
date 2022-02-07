@@ -22,9 +22,9 @@ from datetime import datetime
 
 from sqlalchemy import and_
 
-from app import db
+from app import db, app
 from app.persistence.managers.states import delete_case_states
-from app.common.models import Cases, Client, User, UserActivity, CaseReceivedFile, CaseAssets, IocLink, Notes, NotesGroupLink, \
+from app.common.models import Cases, Client, User, CaseReceivedFile, CaseAssets, IocLink, Notes, NotesGroupLink, \
     NotesGroup, CaseTasks, CaseEventsAssets, IocAssetLink, CasesEvent, CaseEventCategory
 
 
@@ -110,7 +110,7 @@ def delete_case(case_id):
         return False
 
     delete_case_states(caseid=case_id)
-    UserActivity.query.filter(UserActivity.case_id == case_id).delete()
+    app.activities_manager.delete_user_activities(case_id)
     CaseReceivedFile.query.filter(CaseReceivedFile.case_id == case_id).delete()
     IocLink.query.filter(IocLink.case_id == case_id).delete()
 

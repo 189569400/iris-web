@@ -26,9 +26,8 @@ from flask import Blueprint
 from flask import render_template, url_for, redirect
 from flask_wtf import FlaskForm
 
-
 import app
-from app.persistence.managers.activities.activities_manager import get_all_user_activities
+from app import app as fapp
 from app.util import response_success, login_required, api_login_required
 
 activities_blueprint = Blueprint(
@@ -56,7 +55,7 @@ def activities_index(caseid: int, url_redir):
 @api_login_required
 def list_activities(caseid):
     # Get User activites from database
-    user_activities = get_all_user_activities()
+    user_activities = fapp.activities_manager.get_all_user_activities()
 
     data = [row._asdict() for row in user_activities]
     data = sorted(data, key=lambda i: i['activity_date'], reverse=True)

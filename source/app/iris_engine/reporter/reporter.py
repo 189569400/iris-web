@@ -31,7 +31,6 @@ from flask_login import current_user
 from sqlalchemy import and_, or_, desc
 
 from app import app
-from app.persistence.managers.activities.activities_manager import get_auto_activities, get_manual_activities
 from app.persistence.managers.reporter.report_db import export_case_json
 from app.iris_engine.connectors.misp4iris import Misp4Iris
 from app.common.models import CasesDatum, HashLink, FileContentHash, FileName, PathName, CasesEvent, IocLink, Ioc, \
@@ -214,8 +213,8 @@ class IrisMakeDocReport(object):
             return None
 
     def _get_activity_info(self):
-        auto_activities = get_auto_activities(self._caseid)
-        manual_activities = get_manual_activities(self._caseid)
+        auto_activities = app.activities_manager.get_auto_activities(self._caseid)
+        manual_activities = app.activities_manager.get_manual_activities(self._caseid)
         case_info_in = self._get_case_info()
 
         # Format information and generate the activity report #
