@@ -50,13 +50,12 @@ class TestHelper(TestCase):
 
             self.assertEqual(200, result2.status_code)
 
-    def verify_path_with_cid(self, path: str, cid_value: str):
+    def verify_path_with_cid(self, path: str, cid: str):
         with app.test_client() as test_app:
             self.log_in(test_app)
 
-            payload = {'cid': cid_value}
+            payload = {'cid': cid}
             result = test_app.get(url_for(path, **payload))
-            print(result.data)
 
             self.assertEqual(200, result.status_code)
 
@@ -67,3 +66,14 @@ class TestHelper(TestCase):
             result = test_app.get(url_for(path))
 
             self.assertEqual(200, result.status_code)
+
+    def verify_response_with_cid(self, path: str, cid: str, excpected_response):
+        with app.test_client() as test_app:
+            self.log_in(test_app)
+
+            payload = {'cid': cid}
+            result = test_app.get(url_for(path, **payload))
+
+            self.assertEqual(200, result.status_code)
+
+            self.assertEqual(excpected_response, result.data)

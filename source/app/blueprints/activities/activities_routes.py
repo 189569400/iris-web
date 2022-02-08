@@ -54,10 +54,9 @@ def activities_index(caseid: int, url_redir):
 @activities_blueprint.route('/activities/list', methods=['GET'])
 @api_login_required
 def list_activities(caseid):
-    # Get User activites from database
+    # Get User activities from database
     user_activities = fapp.activities_manager.get_all_user_activities()
 
-    data = [row._asdict() for row in user_activities]
-    data = sorted(data, key=lambda i: i['activity_date'], reverse=True)
+    data = sorted(user_activities, key=lambda i: i['activity_date'], reverse=True)
 
     return response_success("", data=data)

@@ -79,6 +79,7 @@ def response_success(msg='', data=None):
                               status=200,
                               mimetype='application/json')
 
+
 def g_db_commit():
     db.session.commit()
 

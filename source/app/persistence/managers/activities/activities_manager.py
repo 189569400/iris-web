@@ -108,7 +108,8 @@ class ActivitiesManager(object):
             UserActivity.case_id == None
         ).order_by(desc(UserActivity.activity_date)).limit(10000).all()
 
-        return user_activities
+        data = [row._asdict() for row in user_activities]
+        return data
 
     @staticmethod
     def _get_user_activities(case_id):
