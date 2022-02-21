@@ -46,7 +46,7 @@ case_notes_blueprint = Blueprint('case_notes',
 @login_required
 def case_notes(caseid, url_redir):
     if url_redir:
-        return redirect(url_for('case_notes.case_notes', cid=caseid))
+        return redirect(url_for('case_notes.case_notes', cid=caseid, redirect=True))
 
     form = FlaskForm()
     case = get_case(caseid)
@@ -79,7 +79,7 @@ def case_note_detail(cur_id, caseid):
 @login_required
 def case_note_detail_modal(cur_id, caseid, url_redir):
     if url_redir:
-        return redirect(url_for('case_notes.case_notes', cid=caseid))
+        return redirect(url_for('case_notes.case_notes', cid=caseid, redirect=True))
 
     form = CaseNoteForm()
 
